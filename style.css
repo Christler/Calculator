@@ -1,8 +1,27 @@
 .container{
+    width: 440px;
     display: grid;
     grid-template-columns: auto auto auto auto;
 }
 
+button{
+    height: 100px;
+    margin: 5px;
+    border-radius: 50px;
+    border: none;
+}
+
 .output{
+    height: 100px;
+    text-align: end;
     outline: 1px solid red;
+    grid-column-start: span 4;
+}
+
+.divide{
+    grid-column-start: 4;
+}
+
+.zero {
+    grid-column-start: span 2;
 }
