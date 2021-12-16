@@ -17,7 +17,7 @@ button{
     padding: 5px;
     text-align: end;
     grid-column-start: span 4;
-    background-color: dimgray;
+    background-color: gray;
 }
 
 .divide{

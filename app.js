@@ -1,18 +1,23 @@
-let a = 0
-let b = 0
+let num1 = 0
+let num2 = 0
+let total = 0
 let operator = ""
-let value = "0"
+let input = "0"
 const output = document.querySelector(".output")
 
 const numbers = document.querySelectorAll(".number")
 numbers.forEach(number => number.addEventListener("click", () => {
-    if(number.innerHTML === "."){
-        if(!value.includes(".")){
-            value += number.innerHTML
-        }
+    let numStr = number.innerHTML
+    if(input === "0"){
+        input = numStr
     }else{
-        value += number.innerHTML 
-        value = Number(value).toString()
+       if(number.innerHTML === "."){
+           if(!input.includes(".")){
+               input += numStr
+           }
+       }else{
+           input += numStr
+       }
     }
     displayOutput()
 }))
@@ -22,30 +27,30 @@ clearBtn.addEventListener("click", clear)
 
 const operators = document.querySelectorAll(".operator")
 operators.forEach(o => o.addEventListener("click", () => {
-    b = Number(value)
-    a = operate(operator, a, b)
+    num2 = Number(input)
+    num1 = operate(operator, num1, num2)
     operator = o.innerHTML
-    value = ""
-    output.innerHTML = a.toString()
+    input = ""
+    output.innerHTML = num1.toString()
 }))
 
 const equals = document.querySelector(".equals")
 equals.addEventListener("click", () => {
-    b = Number(value)
-    value = operate(operator, a, b)
-    a = 0
+    num2 = Number(input)
+    input = operate(operator, num1, num2)
+    num1 = 0
     displayOutput()
 })
 
 function displayOutput(){
-    output.innerHTML = value
+    output.innerHTML = input
 }
 
 function clear(){
-    a = 0
+    num1 = 0
     operator = ""
-    value = "0"
-    output.innerHTML = value
+    input = "0"
+    output.innerHTML = input
 }
 
 function add(a, b){
