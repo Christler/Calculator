@@ -12,10 +12,12 @@ button{
 }
 
 .output{
+    font-size: 100px;
     height: 100px;
+    padding: 5px;
     text-align: end;
-    outline: 1px solid red;
     grid-column-start: span 4;
+    background-color: dimgray;
 }
 
 .divide{
