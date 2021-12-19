@@ -1,29 +1,47 @@
-.container{
-    width: 440px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
-button{
-    height: 100px;
-    margin: 5px;
-    border-radius: 50px;
-    border: none;
-}
-
-.output{
-    font-size: 100px;
-    height: 100px;
-    padding: 5px;
-    text-align: end;
-    grid-column-start: span 4;
-    background-color: gray;
-}
-
-.divide{
-    grid-column-start: 4;
-}
-
-.zero {
-    grid-column-start: span 2;
-}
+body{
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container{
+      width: 440px;
+      padding: 50px 15px;
+      border-radius: 50px;
+      background: black;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+  }
+  
+  button{
+      color: white;
+      font-size: 26px;
+      height: 100px;
+      margin: 5px;
+      border-radius: 50px;
+      border: none;
+  }
+  
+  .number, .clear{
+    background: gray;
+  }
+  
+  .operator, .equals{
+    background: orange;
+  }
+  
+  .output{
+      font-size: 100px;
+      height: 100px;
+      padding: 5px;
+      text-align: end;
+      grid-column-start: span 4;
+  }
+  
+  .divide{
+      grid-column-start: 4;
+  }
+  
+  .zero {
+      grid-column-start: span 2;
+  }

@@ -11,29 +11,34 @@ const equals = document.querySelector(".equals")
 
 clearBtn.addEventListener("click", clear)
 equals.addEventListener("click", equate)
-operators.forEach(o => o.addEventListener("click", setOperation))
-numbers.forEach(n => n.addEventListener("click", setNumber))
+operators.forEach(o => o.addEventListener("click", () => setOperation(o.innerHTML)))
+numbers.forEach(n => n.addEventListener("click", () => setNumber(n.innerHTML)))
+window.addEventListener('keydown', (e) => {
+    if(e.key >= 0 && e.key <= 9) setNumber(e.key)
+    if(e.key === "+" || e.key === "-" || e.key === "/") setOperation(e.key)
+    if(e.key === "*") setOperation("x")
+    if(e.key === "Enter") equate()
+})
 
-function setNumber(){
-    let numStr = this.innerHTML
+function setNumber(num){
     if(input === "0"){
-        input = numStr
+        input = num
     }else{
-       if(numStr === "."){
+       if(num === "."){
            if(!input.includes(".")){
-               input += numStr
+               input += num
            }
        }else{
-           input += numStr
+           input += num
        }
     }
     displayOutput()
 }
 
-function setOperation(){
+function setOperation(o){
     num2 = input
     num1 = operate(operator, num1, num2)
-    operator = this.innerHTML
+    operator = o
     input = ""
     output.innerHTML = num1
 }
@@ -68,7 +73,6 @@ function add(a, b){
 }
 
 function subtract(a, b){
-    console.log(a + " " + b)
     return a - b
 }
 
